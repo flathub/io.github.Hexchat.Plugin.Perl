@@ -1,0 +1,88 @@
+{
+  "id": "io.github.Hexchat.Plugin.Perl",
+  "branch": "2",
+  "runtime": "io.github.Hexchat",
+  "runtime-version": "stable",
+  "sdk": "org.gnome.Sdk//3.26",
+  "build-extension": true,
+  "appstream-compose": false,
+  "separate-locales": false,
+  "modules": [
+    {
+      "name": "perl",
+      "no-autogen": true,
+      "config-opts": [
+        "-des",
+        "-Duseshrplib"
+      ],
+      "build-options": {
+        "cflags": "-fPIC",
+        "ldflags": "-fpic",
+        "prefix": "$FLATPAK_DEST",
+        "no-debuginfo": true
+      },
+      "cleanup": [
+        "/bin",
+        "/man",
+        "/lib/perl5/site_perl",
+        "*.pod",
+        "*.h"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.cpan.org/src/5.0/perl-5.26.1.tar.gz",
+          "sha256": "e763aa485e8dc1a70483dbe6d615986bbf32b977f38016480d68c99237e701dd"
+        },
+        {
+          "type": "script",
+          "dest-filename": "configure",
+          "commands": [
+            "exec ./configure.gnu $@"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hexchat",
+      "buildsystem": "meson",
+      "config-opts": [
+        "--buildtype=release",
+        "-Dwith-lua=false"
+      ],
+      "build-options": {
+        "env": {
+          "PATH": "/app/lib/hexchat/plugins/extensions/Perl/bin:/app/bin:/usr/bin"
+        }
+      },
+      "make-args": [
+        "plugins/perl/perl.so"
+      ],
+      "no-make-install": true,
+      "post-install": [
+        "install -m644 plugins/perl/perl.so ${FLATPAK_DEST}/perl.so"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://dl.hexchat.net/hexchat/hexchat-2.14.1.tar.xz",
+          "sha256": "b032e4bcebe2229f87047439979a1246ddcbf599e7e538baa3f2abfac9a003a2"
+        }
+      ]
+    },
+    {
+       "name": "appdata",
+       "buildsystem": "simple",
+       "build-commands":[
+          "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo io.github.Hexchat.Plugin.Perl.metainfo.xml",
+          "appstream-compose --basename=io.github.Hexchat.Plugin.Perl --prefix=${FLATPAK_DEST} --origin=flatpak io.github.Hexchat.Plugin.Perl"
+       ],
+       "sources":[
+          {
+             "type": "file",
+             "path": "io.github.Hexchat.Plugin.Perl.metainfo.xml"
+          }
+       ]
+    }
+  ]
+}
