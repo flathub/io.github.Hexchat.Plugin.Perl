@@ -5,8 +5,8 @@
   "runtime-version": "stable",
   "sdk": "org.gnome.Sdk//3.26",
   "build-extension": true,
-  "appstream-compose": false,
   "separate-locales": false,
+  "appstream-compose": false,
   "modules": [
     {
       "name": "perl",
@@ -52,7 +52,7 @@
       ],
       "build-options": {
         "env": {
-          "PATH": "/app/lib/hexchat/plugins/extensions/Perl/bin:/app/bin:/usr/bin"
+          "PATH": "/app/extensions/Perl/bin:/app/bin:/usr/bin"
         }
       },
       "make-args": [
@@ -60,7 +60,7 @@
       ],
       "no-make-install": true,
       "post-install": [
-        "install -m644 plugins/perl/perl.so ${FLATPAK_DEST}/perl.so",
+        "install -Dm644 plugins/perl/perl.so ${FLATPAK_DEST}/lib/hexchat/plugins/perl.so",
         "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo data/misc/io.github.Hexchat.Plugin.Perl.metainfo.xml",
         "appstream-compose --basename=io.github.Hexchat.Plugin.Perl --prefix=${FLATPAK_DEST} --origin=flatpak io.github.Hexchat.Plugin.Perl"
       ],
