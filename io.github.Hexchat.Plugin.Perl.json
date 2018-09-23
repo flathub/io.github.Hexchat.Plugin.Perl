@@ -3,10 +3,14 @@
   "branch": "2",
   "runtime": "io.github.Hexchat",
   "runtime-version": "stable",
-  "sdk": "org.gnome.Sdk//3.26",
+  "sdk": "org.gnome.Sdk//3.28",
   "build-extension": true,
   "separate-locales": false,
   "appstream-compose": false,
+  "build-options": {
+    "prefix": "/app/extensions/Perl",
+    "prepend-path": "/app/extensions/Perl/bin"
+  },
   "modules": [
     {
       "name": "perl",
@@ -17,9 +21,7 @@
       ],
       "build-options": {
         "cflags": "-fPIC",
-        "ldflags": "-fpic",
-        "prefix": "$FLATPAK_DEST",
-        "no-debuginfo": true
+        "ldflags": "-fpic"
       },
       "cleanup": [
         "/bin",
@@ -31,8 +33,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://www.cpan.org/src/5.0/perl-5.26.1.tar.gz",
-          "sha256": "e763aa485e8dc1a70483dbe6d615986bbf32b977f38016480d68c99237e701dd"
+          "url": "https://www.cpan.org/src/5.0/perl-5.28.0.tar.gz",
+          "sha256": "7e929f64d4cb0e9d1159d4a59fc89394e27fa1f7004d0836ca0d514685406ea8"
         },
         {
           "type": "script",
@@ -50,11 +52,6 @@
         "--buildtype=release",
         "-Dwith-lua=false"
       ],
-      "build-options": {
-        "env": {
-          "PATH": "/app/extensions/Perl/bin:/app/bin:/usr/bin"
-        }
-      },
       "make-args": [
         "plugins/perl/perl.so"
       ],
@@ -66,9 +63,9 @@
       ],
       "sources": [
         {
-          "type": "git",
-          "url": "https://github.com/hexchat/hexchat.git",
-          "commit": "da56297c5ac0a425cd2eaaa8091dc83621ce3c38"
+          "type": "archive",
+          "url": "https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz",
+          "sha256": "7792b9e52560fbd3e10d75bfb5d138a20913a87771d676d296547f1b4ac09618"
         }
       ]
     }
