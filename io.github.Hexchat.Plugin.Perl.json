@@ -1,9 +1,9 @@
 {
   "id": "io.github.Hexchat.Plugin.Perl",
-  "branch": "2",
+  "branch": "18.08",
   "runtime": "io.github.Hexchat",
   "runtime-version": "stable",
-  "sdk": "org.gnome.Sdk//3.28",
+  "sdk": "org.gnome.Sdk//3.30",
   "build-extension": true,
   "separate-locales": false,
   "appstream-compose": false,
@@ -50,7 +50,8 @@
       "buildsystem": "meson",
       "config-opts": [
         "--buildtype=release",
-        "-Dwith-lua=false"
+        "-Dwith-lua=false",
+        "-Dwith-gtk=false"
       ],
       "make-args": [
         "plugins/perl/perl.so"
@@ -66,6 +67,13 @@
           "type": "archive",
           "url": "https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz",
           "sha256": "7792b9e52560fbd3e10d75bfb5d138a20913a87771d676d296547f1b4ac09618"
+        },
+        {
+          "type": "shell",
+          "commands": [
+            /* Hack to fix upstream someday */
+            "sed -i 's|with-theme-manager|with-appdata|' data/meson.build"
+          ]
         }
       ]
     }
