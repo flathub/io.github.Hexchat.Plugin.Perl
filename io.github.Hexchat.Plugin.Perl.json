@@ -51,7 +51,7 @@
       "config-opts": [
         "--buildtype=release",
         "-Dwith-lua=false",
-        "-Dwith-gtk=false"
+        "-Dwith-gtk=false",
         "-Dwith-dbus=false"
       ],
       "make-args": [
