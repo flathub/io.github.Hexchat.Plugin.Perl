@@ -12,10 +12,6 @@
     "prepend-path": "/app/extensions/Perl/bin"
   },
   "modules": [
-    "shared-modules/dbus-glib/dbus-glib-0.110.json",
-    {
-      "name": "dbus-glib"
-    },
     {
       "name": "perl",
       "no-autogen": true,
@@ -56,6 +52,7 @@
         "--buildtype=release",
         "-Dwith-lua=false",
         "-Dwith-gtk=false"
+        "-Dwith-dbus=false"
       ],
       "make-args": [
         "plugins/perl/perl.so"
