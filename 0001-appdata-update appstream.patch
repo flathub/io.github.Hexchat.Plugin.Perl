@@ -1,0 +1,41 @@
+From 2dd7636134f31d1f6f931f6adb0c33b3b5c12a34 Mon Sep 17 00:00:00 2001
+From: Patrick Griffis <tingping@tingping.se>
+Date: Sat, 30 Apr 2022 16:47:04 -0500
+Subject: [PATCH] appdata: Update appstream usage for desktop applications
+
+---
+ data/misc/io.github.Hexchat.Plugin.metainfo.xml.in | 2 +-
+ data/misc/io.github.Hexchat.appdata.xml.in         | 5 +++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/data/misc/io.github.Hexchat.Plugin.metainfo.xml.in b/data/misc/io.github.Hexchat.Plugin.metainfo.xml.in
+index b4412ce2..b32a9191 100644
+--- a/data/misc/io.github.Hexchat.Plugin.metainfo.xml.in
++++ b/data/misc/io.github.Hexchat.Plugin.metainfo.xml.in
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="addon">
+   <id>io.github.Hexchat.Plugin.@NAME@</id>
+-  <extends>io.github.Hexchat.desktop</extends>
++  <extends>io.github.Hexchat</extends>
+   <name>@NAME@ Plugin</name>
+   <summary>@SUMMARY@</summary>
+   <url type="homepage">https://hexchat.github.io/</url>
+diff --git a/data/misc/io.github.Hexchat.appdata.xml.in b/data/misc/io.github.Hexchat.appdata.xml.in
+index 9ee4343b..d75cc1cc 100644
+--- a/data/misc/io.github.Hexchat.appdata.xml.in
++++ b/data/misc/io.github.Hexchat.appdata.xml.in
+@@ -1,7 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component type="desktop">
+-  <id>io.github.Hexchat.desktop</id>
++<component type="desktop-application">
++  <id>io.github.Hexchat</id>
+   <name>HexChat</name>
++  <launchable type="desktop-id">io.github.Hexchat.desktop</launchable>
+   <developer_name>HexChat</developer_name>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-2.0+</project_license>
+-- 
+2.36.1
+
