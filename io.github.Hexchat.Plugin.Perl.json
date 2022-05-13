@@ -33,8 +33,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
-          "sha256": "03b693901cd8ae807231b1787798cf1f2e0b8a56218d07b7da44f784a7caeb2c"
+          "url": "https://www.cpan.org/src/5.0/perl-5.34.1.tar.gz",
+          "sha256": "357951a491b0ba1ce3611263922feec78ccd581dddc24a446b033e25acf242a1"
         },
         {
           "type": "script",
@@ -66,8 +66,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://dl.hexchat.net/hexchat/hexchat-2.14.3.tar.xz",
-          "sha256": "901a9d13db5a4da69b827f6093306bbd16863dc49016f7668bd3e4506512e882"
+          "url": "https://dl.hexchat.net/hexchat/hexchat-2.16.1.tar.xz",
+          "sha256": "a7e497da71df419daf9855582d51c723a2611de25d5e97b5efc33fe78da5c4c7"
         },
         {
           "type":"patch",
