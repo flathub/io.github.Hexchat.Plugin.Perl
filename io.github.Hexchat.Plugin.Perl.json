@@ -3,7 +3,7 @@
   "branch": "20.08",
   "runtime": "io.github.Hexchat",
   "runtime-version": "stable",
-  "sdk": "org.gnome.Sdk//40",
+  "sdk": "org.gnome.Sdk//41",
   "build-extension": true,
   "separate-locales": false,
   "appstream-compose": false,
