@@ -12,6 +12,7 @@
     "prepend-path": "/app/extensions/Perl/bin"
   },
   "modules": [
+    "shared-modules/dbus-glib/dbus-glib.json",
     {
       "name": "perl",
       "no-autogen": true,
