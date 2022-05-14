@@ -52,7 +52,7 @@
         "--buildtype=release",
         "-Dwith-lua=false",
         "-Dgtk-frontend=false",
-        "-Ddbus=false"
+        "-Ddbus=disabled"
       ],
       "make-args": [
         "plugins/perl/perl.so"
