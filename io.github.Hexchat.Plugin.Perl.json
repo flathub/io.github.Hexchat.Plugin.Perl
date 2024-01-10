@@ -1,9 +1,9 @@
 {
   "id": "io.github.Hexchat.Plugin.Perl",
-  "branch": "21.08",
+  "branch": "23.08",
   "runtime": "io.github.Hexchat",
   "runtime-version": "stable",
-  "sdk": "org.gnome.Sdk//42",
+  "sdk": "org.freedesktop.Sdk//23.08",
   "build-extension": true,
   "separate-locales": false,
   "appstream-compose": false,
@@ -33,8 +33,13 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
-          "sha256": "03b693901cd8ae807231b1787798cf1f2e0b8a56218d07b7da44f784a7caeb2c"
+          "url": "https://www.cpan.org/src/5.0/perl-5.38.2.tar.gz",
+          "sha256": "a0a31534451eb7b83c7d6594a497543a54d488bc90ca00f5e34762577f40655e",
+          "x-data-checker": {
+            "type": "anitya",
+            "project-id": 13599,
+            "url-template": "https://www.cpan.org/src/5.0/perl-$version.tar.gz"
+          }
         },
         {
           "type": "script",
